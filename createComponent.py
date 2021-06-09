@@ -30,12 +30,13 @@ def createComponent(config, access_token):
     # https://experience.adobe.com/#/@accenture-partner/data-collection/client/companies/CO268e14e0982744c98e52417ad4ed6833/properties/PR23e1ae6d96634c5dab7e01c113397dac/extensions/EXc26c6bcee0764457bea1fa8581f9928c
     propertyId = getPropertyId(config, access_token, _companyId)
     print(propertyId)
-    post_body = """{
+    post_body = r"""{
 	"data": {
-		"attributes": {
+			
+			"attributes": {
 			"delegate_descriptor_id": "core::conditions::landing-page",
-			"name": "My Example Value Comparison",
-			"settings": [{"page":"testing rule component"}]
+			"name": "Core - Landing Page",
+			"settings": "{\"page\": \"test\"}"
 		},
 		"relationships": {
 			"extension": {
@@ -53,18 +54,16 @@ def createComponent(config, access_token):
 		},
 		"type": "rule_components"
 	}
-} """
-
-  
+}"""
     to_python = json.loads(post_body)
-                 
-    print("Helllooo  ooo   ")
     response = requests.post("https://reactor.adobe.io/properties/"+propertyId +"/rule_components", data=json.dumps(to_python), headers=_header, verify=False)
 
     if(response.status_code == 201):
           print("Congratulations! Your Rule component is Created Successfully")
     else:
-          print("Oops! Error Occured. Please check the error here:", response)
-            
+          print("Oops! Error Occured. Please check the error here:", response.json)
+    jsonResponse = response.json()
+    print("Entire JSON response")
+    print(jsonResponse)
             
 createComponent(config.config, config.access_token)
