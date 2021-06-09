@@ -33,8 +33,8 @@ def createComponent(config, access_token):
     post_body = """ {
   "data": {
     "attributes": {
-      "delegate_descriptor_id": "core::events::click",
-      "name": "My Example Click Event"
+      "delegate_descriptor_id": "core::events::tab-blur",
+      "name": "My Example var2"
      
     },
     "relationships": {
