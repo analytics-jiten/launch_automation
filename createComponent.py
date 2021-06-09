@@ -30,31 +30,29 @@ def createComponent(config, access_token):
     # https://experience.adobe.com/#/@accenture-partner/data-collection/client/companies/CO268e14e0982744c98e52417ad4ed6833/properties/PR23e1ae6d96634c5dab7e01c113397dac/extensions/EXc26c6bcee0764457bea1fa8581f9928c
     propertyId = getPropertyId(config, access_token, _companyId)
     print(propertyId)
-    post_body = """ {
-  "data": {
-    "attributes": {
-      "delegate_descriptor_id": "core::events::tab-blur",
-      "name": "My Example var2"
-     
-    },
-    "relationships": {
-      "extension": {
-        "data": {
-          "id": "EXc26c6bcee0764457bea1fa8581f9928c",
-          "type": "extensions"
-        }
-      },
-      "rules": {
-        "data": [
-          {
-            "id": "RL8ade93b528144b0685df3ca658831bfc",
-            "type": "rules"
-          }
-        ]
-      }
-    },
-    "type": "rule_components"
-  }
+    post_body = """{
+	"data": {
+		"attributes": {
+			"delegate_descriptor_id": "core::conditions::landing-page",
+			"name": "My Example Value Comparison",
+			"settings": [{"page":"testing rule component"}]
+		},
+		"relationships": {
+			"extension": {
+				"data": {
+					"id": "EXc26c6bcee0764457bea1fa8581f9928c",
+					"type": "extensions"
+				}
+			},
+			"rules": {
+				"data": [{
+					"id": "RL8ade93b528144b0685df3ca658831bfc",
+					"type": "rules"
+				}]
+			}
+		},
+		"type": "rule_components"
+	}
 } """
 
   
