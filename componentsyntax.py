@@ -54,8 +54,9 @@
     "type": "rule_components"
   }
 } 
-""" Above json can create a event component of rule"""
 
+
+#Above json can create a event component of rule"""
 
 
 {
@@ -147,4 +148,29 @@ r"""{
 
 #it can create a condition
 
-
+{
+	"data": {
+			
+			"attributes": {
+			"delegate_descriptor_id": "core::actions::custom-code",
+			"name": "Core - Custom Code",
+			"settings": "{\"source\": \"console\",\"language\":\"html\"}"
+		},
+		"relationships": {
+			"extension": {
+				"data": {
+					"id": "EXc26c6bcee0764457bea1fa8581f9928c",
+					"type": "extensions"
+				}
+			},
+			"rules": {
+				"data": [{
+					"id": "RL8ade93b528144b0685df3ca658831bfc",
+					"type": "rules"
+				}]
+			}
+		},
+		"type": "rule_components"
+	}
+}
+#It can create a action

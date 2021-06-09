@@ -34,9 +34,9 @@ def createComponent(config, access_token):
 	"data": {
 			
 			"attributes": {
-			"delegate_descriptor_id": "core::conditions::landing-page",
-			"name": "Core - Landing Page",
-			"settings": "{\"page\": \"test\"}"
+			"delegate_descriptor_id": "core::actions::custom-code",
+			"name": "Core - Custom Code",
+			"settings": "{\"source\": \"console\",\"language\":\"html\"}"
 		},
 		"relationships": {
 			"extension": {
