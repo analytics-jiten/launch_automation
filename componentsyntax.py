@@ -93,32 +93,6 @@
 }
 
 
-
-{
-	"data": {
-		"attributes": {
-			"delegate_descriptor_id": "core::conditions::landing-page",
-			"name": "My Example Value Comparison",
-			"settings": [{"page":"testing rule component"}]
-		},
-		"relationships": {
-			"extension": {
-				"data": {
-					"id": "EXc26c6bcee0764457bea1fa8581f9928c",
-					"type": "extensions"
-				}
-			},
-			"rules": {
-				"data": [{
-					"id": "RL8ade93b528144b0685df3ca658831bfc",
-					"type": "rules"
-				}]
-			}
-		},
-		"type": "rule_components"
-	}
-}
-
 r"""{
 	"data": {
 			

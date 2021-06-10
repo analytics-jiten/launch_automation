@@ -1,0 +1,3 @@
+rule,delegate_descriptor_events_settings,delegate_descriptor_condition_settings,delegate_descriptor_action_settings
+my first rule,core::events:click,"core::conditions::landing-page, test",core::actions::custom-code
+,,,
