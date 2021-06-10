@@ -123,35 +123,36 @@ def createComponentCondition(config, access_token,lis):
     propertyId = getPropertyId(config, access_token, _companyId)
 
     descriptor, page1 = list(lis.split(","))
+    dic = {}
 
-    post_body = r"""{
-	"data": {
-			
-			"attributes": {
-			"delegate_descriptor_id":"""+json.dumps(descriptor)+r""",
-			"name": "Core - Landing Page",
-			"settings": "{\"page\": \"page\"}"
-		},
-		"relationships": {
-			"extension": {
-				"data": {
-					"id": "EXc26c6bcee0764457bea1fa8581f9928c",
-					"type": "extensions"
-				}
-			},
-			"rules": {
-				"data": [{
-					"id": "RL8ade93b528144b0685df3ca658831bfc",
-					"type": "rules"
-				}]
-			}
-		},
-		"type": "rule_components"
-	}
-}"""
+    dic['data'] = {}
 
-    to_python = json.loads(post_body)
-    response = requests.post("https://reactor.adobe.io/properties/"+propertyId +"/rule_components", data=json.dumps(to_python), headers=_header, verify=False)
+    dic['data']['attributes'] = {
+        'delegate_descriptor_id': descriptor,
+        'name': 'Core - Landing Page',
+        'settings': json.dumps({'page': page1})
+    }
+    
+    dic['data']['relationships'] = {}
+
+    dic['data']['relationships']['extension'] = {
+        'data': {
+            'id': 'EXc26c6bcee0764457bea1fa8581f9928c',
+            'type': 'extensions'
+        }
+    }
+
+    dic['data']['relationships']['rules'] = {
+        'data': [{
+            'id': 'RL8ade93b528144b0685df3ca658831bfc',
+            'type': 'rules'
+        }]
+    }
+    dic['data']['type'] = 'rule_components'
+
+    to_python = json.dumps(dic)
+#   to_python = json.dumps(post_body)
+    response = requests.post("https://reactor.adobe.io/properties/"+propertyId +"/rule_components", data=to_python, headers=_header, verify=False)
 
     if(response.status_code == 201):
           print("Congratulations! Your Rule component is Created Successfully")
