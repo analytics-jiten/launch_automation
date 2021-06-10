@@ -7,6 +7,7 @@ import requests
 import json
 from pandas.io.json import json_normalize
 from readExcelCreate import *
+import pickle
 
 _header = {"Accept": "application/vnd.api+json;revision=1",
            "Content-Type": "application/vnd.api+json;revision=1",
@@ -127,7 +128,7 @@ def createComponentCondition(config, access_token,lis):
 	"data": {
 			
 			"attributes": {
-			"delegate_descriptor_id": "core::conditions::landing-page",
+			"delegate_descriptor_id":"""+json.dumps(descriptor)+r""",
 			"name": "Core - Landing Page",
 			"settings": "{\"page\": \"page\"}"
 		},
