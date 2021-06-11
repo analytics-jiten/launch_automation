@@ -8,6 +8,7 @@ import json
 from pandas.io.json import json_normalize
 import pickle
 
+
 _header = {"Accept": "application/vnd.api+json;revision=1",
            "Content-Type": "application/vnd.api+json;revision=1",
            "Authorization": "Bearer " + config.access_token,
@@ -36,9 +37,7 @@ def createComponentEvent(config, access_token,lis):
     propertyId = getPropertyId(config, access_token, _companyId)
     descriptor = lis
     dic ={}
-    dic = {}
     dic['data'] = {}
-
     dic['data']['attributes'] = {
         'delegate_descriptor_id': descriptor,
         'name': 'Core - Landing Page',
@@ -78,7 +77,7 @@ def createComponentAction(config, access_token,lis):
     # https://experience.adobe.com/#/@accenture-partner/data-collection/client/companies/CO268e14e0982744c98e52417ad4ed6833/properties/PR23e1ae6d96634c5dab7e01c113397dac/rules/RL8ade93b528144b0685df3ca658831bfc
     # https://experience.adobe.com/#/@accenture-partner/data-collection/client/companies/CO268e14e0982744c98e52417ad4ed6833/properties/PR23e1ae6d96634c5dab7e01c113397dac/extensions/EXc26c6bcee0764457bea1fa8581f9928c
     propertyId = getPropertyId(config, access_token, _companyId)
-    descriptor,source, page = list(action_data.split(","))
+    descriptor,source, page = list(lis.split(","))
     dic = {}
     dic['data'] = {}
 
