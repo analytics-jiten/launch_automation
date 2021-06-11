@@ -1,6 +1,8 @@
 rule,delegate_descriptor_condition_settings,delegate_descriptor_event_settings,delegate_descriptor_action_settings
 ,"core::conditions::landing-page, page",core::events::tab-blur,"core::actions::custom-code,console,html"
-,"core::conditions::landing-page, page",,
-,"core::conditions::landing-page, page",,
-,"core::conditions::landing-page, page",,
-,"core::conditions::landing-page, page",,
+,"core::conditions::landing-page, page",core::events::tab-blur,"core::actions::custom-code,console,html"
+,,,"core::actions::custom-code,console,html"
+,,,"core::actions::custom-code,console,html"
+,,,"core::actions::custom-code,console,html"
+,,,"core::actions::custom-code,console,html"
+,,,"core::actions::custom-code,console,html"
