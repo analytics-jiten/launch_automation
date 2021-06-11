@@ -6,7 +6,6 @@ import httplib2
 import requests
 import json
 from pandas.io.json import json_normalize
-from readExcelCreate import *
 import pickle
 
 _header = {"Accept": "application/vnd.api+json;revision=1",
@@ -169,4 +168,4 @@ def createComponentCondition(config, access_token,lis):
 
 #createComponentCondition(config.config, config.access_token,condition_data)
 
-createComponentAction(config.config, config.access_token, action_data)
+#createComponentAction(config.config, config.access_token, action_data)
