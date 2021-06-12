@@ -24,13 +24,13 @@ def getPropertyId(config, access_token, companyId):
     return response.json()['data'][0]['id']
 
 
-def createRule(config, access_token):
+def createRule(config, access_token,rule):
     propertyId = getPropertyId(config, access_token, _companyId)
     post_body = """
         {
       "data": {
     "attributes": {
-      "name": "First Yash Testing via API"
+      "name": """+json.dumps(rule)+r"""
     },
     "type": "rules"
     }
@@ -40,11 +40,13 @@ def createRule(config, access_token):
     response = requests.post("https://reactor.adobe.io/properties/"+propertyId +
                              "/rules", data=json.dumps(to_python), headers=_header, verify=False)
     if(response.status_code == 201):
+        entirejson = response.json()
         print("Congratulations! Your Rule is Created Successfully")
+        return entirejson['data']['id']
     else:
         print("Oops! Error Occured. Please check the error here:", response)
 
 
-createRule(config.config, config.access_token)
+#createRule(config.config, config.access_token,"test rule dynamic again")
 
 

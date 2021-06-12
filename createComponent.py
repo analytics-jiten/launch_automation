@@ -31,7 +31,7 @@ def getPropertyId(config, access_token, companyId):
 
 #creating components
 
-def createComponentEvent(config, access_token,lis):
+def createComponentEvent(config, access_token,lis,ruleId):
     # https://experience.adobe.com/#/@accenture-partner/data-collection/client/companies/CO268e14e0982744c98e52417ad4ed6833/properties/PR23e1ae6d96634c5dab7e01c113397dac/rules/RL8ade93b528144b0685df3ca658831bfc
     # https://experience.adobe.com/#/@accenture-partner/data-collection/client/companies/CO268e14e0982744c98e52417ad4ed6833/properties/PR23e1ae6d96634c5dab7e01c113397dac/extensions/EXc26c6bcee0764457bea1fa8581f9928c
     propertyId = getPropertyId(config, access_token, _companyId)
@@ -40,7 +40,7 @@ def createComponentEvent(config, access_token,lis):
     dic['data'] = {}
     dic['data']['attributes'] = {
         'delegate_descriptor_id': descriptor,
-        'name': 'Core - Landing Page',
+        'name': 'Test-final',
     }
     
     dic['data']['relationships'] = {}
@@ -54,7 +54,7 @@ def createComponentEvent(config, access_token,lis):
 
     dic['data']['relationships']['rules'] = {
         'data': [{
-            'id': 'RL8ade93b528144b0685df3ca658831bfc',
+            'id': ruleId,
             'type': 'rules'
         }]
     }
@@ -73,17 +73,18 @@ def createComponentEvent(config, access_token,lis):
     print(jsonResponse)
             
 
-def createComponentAction(config, access_token,lis):
+def createComponentAction(config, access_token,lis,ruleId):
     # https://experience.adobe.com/#/@accenture-partner/data-collection/client/companies/CO268e14e0982744c98e52417ad4ed6833/properties/PR23e1ae6d96634c5dab7e01c113397dac/rules/RL8ade93b528144b0685df3ca658831bfc
     # https://experience.adobe.com/#/@accenture-partner/data-collection/client/companies/CO268e14e0982744c98e52417ad4ed6833/properties/PR23e1ae6d96634c5dab7e01c113397dac/extensions/EXc26c6bcee0764457bea1fa8581f9928c
     propertyId = getPropertyId(config, access_token, _companyId)
     descriptor,source, page = list(lis.split(","))
     dic = {}
+    print(descriptor,source,page)
     dic['data'] = {}
 
     dic['data']['attributes'] = {
         'delegate_descriptor_id': descriptor,
-        'name': 'Core - Landing Page',
+        'name': 'Core - Custom Code',
         'settings': json.dumps({'source':source,'language': page})
     }
     
@@ -98,7 +99,7 @@ def createComponentAction(config, access_token,lis):
 
     dic['data']['relationships']['rules'] = {
         'data': [{
-            'id': 'RL8ade93b528144b0685df3ca658831bfc',
+            'id': ruleId,
             'type': 'rules'
         }]
     }
@@ -117,7 +118,7 @@ def createComponentAction(config, access_token,lis):
     print(jsonResponse)
  
 
-def createComponentCondition(config, access_token,lis):
+def createComponentCondition(config, access_token,lis,ruleId):
     # https://experience.adobe.com/#/@accenture-partner/data-collection/client/companies/CO268e14e0982744c98e52417ad4ed6833/properties/PR23e1ae6d96634c5dab7e01c113397dac/rules/RL8ade93b528144b0685df3ca658831bfc
     # https://experience.adobe.com/#/@accenture-partner/data-collection/client/companies/CO268e14e0982744c98e52417ad4ed6833/properties/PR23e1ae6d96634c5dab7e01c113397dac/extensions/EXc26c6bcee0764457bea1fa8581f9928c
     propertyId = getPropertyId(config, access_token, _companyId)
@@ -143,7 +144,7 @@ def createComponentCondition(config, access_token,lis):
 
     dic['data']['relationships']['rules'] = {
         'data': [{
-            'id': 'RL8ade93b528144b0685df3ca658831bfc',
+            'id': ruleId,
             'type': 'rules'
         }]
     }
