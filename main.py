@@ -26,19 +26,27 @@ def getPropertyId(config, access_token, companyId):
 
 def createRule(config, access_token,rule):
     propertyId = getPropertyId(config, access_token, _companyId)
-    post_body = r"""
-        {
-      "data": {
-    "attributes": {
-      "name": """+json.dumps(rule)+r"""
-    },
-    "type": "rules"
+    # post_body = r"""
+    #     {
+    #   "data": {
+    # "attributes": {
+    #   "name": """+json.dumps(rule)+r"""
+    # },
+    # "type": "rules"
+    # }
+    # }
+    # """
+
+    dic = {}
+    dic['data']={}
+    dic['data']['attributes'] = {
+        'name' : 'Hello World Rule'
     }
-    }
-    """
-    to_python = json.loads(post_body)
+    dic['data']['type'] = 'rules'
+
+    to_python = json.dumps(dic)
     response = requests.post("https://reactor.adobe.io/properties/"+propertyId +
-                             "/rules", data=json.dumps(to_python), headers=_header, verify=False)
+                             "/rules", data=to_python, headers=_header, verify=False)
     if(response.status_code == 201):
         entirejson = response.json()
         print("Congratulations! Your Rule is Created Successfully")
