@@ -31,7 +31,7 @@ def fetchRuleComponent(config, access_token):
     #https://reactor.adobe.io/rule_components/RC9ab25fbc35634e00b9395356a85a51b0/notes?sort=-updated_at&page[size]=1
 
 
-    response = requests.get("https://reactor.adobe.io/rule_components/RCa7805201b3744a40b767d73fecdcc820",  headers=_header, verify=False)
+    response = requests.get("https://reactor.adobe.io/rule_components/RC5d84d8e9d50f4bc993e0dbba02879961",  headers=_header, verify=False)
 
     if(response.status_code == 200):
           print("Congratulations! Your Rule component is Fetched Successfully")
@@ -48,3 +48,12 @@ fetchRuleComponent(config.config, config.access_token)
 
 
 
+"""
+
+
+core::conditions::landing-page, page +core::conditions::landing-page, page
+core::conditions::landing-page,page +core::conditions::landing-page, page
+core::conditions::landing-page, page +core::conditions::landing-page, page+core::conditions::landing-page, page +core::conditions::landing-page, page
+core::conditions::landing-page, page +core::conditions::landing-page, page
+
+"""

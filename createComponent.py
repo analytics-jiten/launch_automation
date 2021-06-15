@@ -103,6 +103,7 @@ def createComponentAction(config, access_token,lis,ruleId):
             'type': 'rules'
         }]
     }
+    
     dic['data']['type'] = 'rule_components'
 
     to_python = json.dumps(dic)
