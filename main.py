@@ -36,7 +36,6 @@ def createRule(config, access_token,rule):
     # }
     # }
     # """
-
     dic = {}
     dic['data']={}
     dic['data']['attributes'] = {

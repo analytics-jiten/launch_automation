@@ -1,1 +1,6 @@
-Property Name,Rule Name,Event Type,Event Extension,Event Name,Condition Type,Condition Name,Condition Action
+Property Name,Rule Name,Event Type,Event Extension,Event Name,Condition Type,Condition Name,Condition Action,Action Type,Action Extension,Action Name,Analytics Variable,Value
+,,click,core,,,,,,,,evar1,
+,,data element,,,,,,,,,,
+,,click,,,,,,,,,,
+,,data element,,,,,,,,,,
+,,custom event,,,,,,,,,,
