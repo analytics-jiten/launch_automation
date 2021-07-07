@@ -20,7 +20,7 @@ _companyId = requests.get(
 
 def getPropertyId(config, access_token, companyId):
     response = requests.get("https://reactor.adobe.io/companies/"+str(companyId) +
-                            "/properties?filter[name]=CONTAINS sky", headers=_header, verify=False)
+                            "/properties?filter[name]=CONTAINS Yash_TrainingJun21", headers=_header, verify=False)
     return response.json()['data'][0]['id']
 
 
@@ -68,7 +68,7 @@ def createRule(config, access_token,rule):
 
     dic['data']['relationships']['extension'] = {
         'data': {
-            'id': 'EXc26c6bcee0764457bea1fa8581f9928c',
+            'id': 'EXa0d885ebf6374e95a84af877c8db9528',
             'type': 'extensions'
         }
     }
@@ -108,7 +108,7 @@ def createRule(config, access_token,rule):
 
     dic['data']['relationships']['extension'] = {
         'data': {
-            'id': 'EXc26c6bcee0764457bea1fa8581f9928c',
+            'id': 'EXa0d885ebf6374e95a84af877c8db9528',
             'type': 'extensions'
         }
     }
@@ -133,20 +133,19 @@ def createRule(config, access_token,rule):
 
     
     #create Actions
-    source = 'test_identifier'
     dic = {}
     dic['data'] = {}
     dic['data']['attributes'] = {
-        'delegate_descriptor_id': 'core::actions::direct-call',
-        'name': 'Core - Custom Code',
-        'settings': json.dumps({'identifier':source})
+        'delegate_descriptor_id': 'adobe-analytics::actions::send-beacon',
+        'name': 'AA - Send Beacon',
+        'settings': json.dumps('{"type":"page"}')
     }
     
     dic['data']['relationships'] = {}
 
     dic['data']['relationships']['extension'] = {
         'data': {
-            'id': 'EXc26c6bcee0764457bea1fa8581f9928c',
+            'id': 'EX075d5e58920a4f9086cad021775bfd19',
             'type': 'extensions'
         }
     }
