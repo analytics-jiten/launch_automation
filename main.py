@@ -138,8 +138,10 @@ def createRule(config, access_token,rule):
     dic['data']['attributes'] = {
         'delegate_descriptor_id': 'adobe-analytics::actions::send-beacon',
         'name': 'AA - Send Beacon',
-        'settings': json.dumps('{"type":"page"}')
+        'settings': json.dumps('{"trackerProperties":{"eVars":[{"name":"eVar1","type":"value","value":"1"}],"props":[{"name":"prop1","type":"value","value":"1"}]}}')
     }
+
+    #to make send beacon put 'settings': {'{"type":"page"}'}
     
     dic['data']['relationships'] = {}
 

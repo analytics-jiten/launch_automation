@@ -47,3 +47,36 @@ dic = {}
     }
     
     dic['data']['type'] = 'rule_components'
+
+
+
+
+
+    #create Actions
+    dic = {}
+    dic['data'] = {}
+    dic['data']['attributes'] = {
+        'delegate_descriptor_id': 'adobe-analytics::actions::send-beacon',
+        'name': 'AA - Send Beacon',
+        'settings': json.dumps('{"type":"page"}')
+    }
+    
+    dic['data']['relationships'] = {}
+
+    dic['data']['relationships']['extension'] = {
+        'data': {
+            'id': 'EX075d5e58920a4f9086cad021775bfd19',
+            'type': 'extensions'
+        }
+    }
+
+    dic['data']['relationships']['rules'] = {
+        'data': [{
+            'id': ruleId,
+            'type': 'rules'
+        }]
+    }
+    
+    dic['data']['type'] = 'rule_components'
+
+    to_python = json.dumps(dic)
